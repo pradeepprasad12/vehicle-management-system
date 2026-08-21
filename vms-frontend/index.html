@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fleet Dispatch · Vehicle Management System</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- Set window.VMS_API_BASE before app.js loads if your backend isn't on 127.0.0.1:8000 -->
+<script>window.VMS_API_BASE = 'http://127.0.0.1:8000';</script>
+
+<!-- ============ LOGIN SCREEN ============ -->
+<div id="login-screen">
+  <div class="badge-card">
+    <div class="badge-eyebrow"><span class="beacon green"></span> DISPATCH TERMINAL · <span id="api-base-label">http://127.0.0.1:8000</span></div>
+    <h1 class="badge-title">Fleet Dispatch</h1>
+    <p class="badge-sub">Sign in with your vehicle management account.</p>
+
+    <form id="login-form">
+      <div class="field">
+        <label for="login-username">Username</label>
+        <input id="login-username" name="username" type="text" autocomplete="username" required />
+      </div>
+      <div class="field">
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+      </div>
+
+      <div class="field">
+        <label>Sign in as</label>
+        <div class="role-toggle">
+          <button type="button" class="active" data-role="admin">Admin</button>
+          <button type="button" data-role="driver">Driver</button>
+        </div>
+      </div>
+
+      <button id="login-submit" type="submit" class="btn btn-primary btn-block">Sign in</button>
+      <div id="login-error" class="login-error hidden"></div>
+    </form>
+    <div class="login-footnote">JWT session · access + refresh tokens</div>
+  </div>
+</div>
+
+<!-- ============ APP SHELL ============ -->
+<div id="app-shell" class="hidden">
+  <aside class="sidebar">
+    <div class="brand"><span class="beacon green"></span>Fleet Dispatch</div>
+
+    <div class="nav-group">
+      <div class="nav-eyebrow">Operations</div>
+      <a class="nav-link" data-route="dashboard"><span class="dot"></span>Dashboard</a>
+      <a class="nav-link" data-route="vehicles"><span class="dot"></span>Vehicles</a>
+      <a class="nav-link" data-route="drivers"><span class="dot"></span>Drivers</a>
+      <a class="nav-link" data-route="assignments"><span class="dot"></span>Assignments</a>
+    </div>
+
+    <div class="sidebar-footer">
+      <div class="session-chip">Signed in as<br /><b id="session-username">—</b> · <span id="session-role">—</span></div>
+      <button id="logout-btn" class="btn btn-ghost btn-block btn-sm">Sign out</button>
+    </div>
+  </aside>
+
+  <main id="main-content"></main>
+</div>
+
+<div id="toast-stack"></div>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
