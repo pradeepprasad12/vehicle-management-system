@@ -144,7 +144,7 @@ vehicle-management/
 15. Authentication APIs
 
 Authentication uses JWT.
-
+---------------------------------------------------------------------------------------------
 15.1 Login
 Endpoint
 POST /api/auth/login/
@@ -224,7 +224,7 @@ Unassign vehicles
 19. Vehicle APIs
 
 Base endpoint:
-
+--------------------------------------------------------------------
 /api/vehicles/
 19.1 List Vehicles
 Request
@@ -420,6 +420,7 @@ Example response:
     "previous": "http://127.0.0.1:8000/api/vehicles/?page=1",
     "results": []
 }
+-----------------------------------------------------------------------------------------
 29. Driver APIs
 
 Base endpoint:
@@ -548,7 +549,7 @@ Oldest:
 
 GET /api/drivers/?ordering=created_at
 39. Assignment APIs
-
+------------------------------------------------------------------------------------------
 Base endpoint:
 
 /api/assignments/
@@ -799,8 +800,9 @@ Oldest assignments:
 GET /api/assignments/?ordering=assigned_at
 52. Assignment Pagination
 GET /api/assignments/?page=2
-53. Dashboard API
 
+------------------------------------------------------------------------------------------
+ Dashboard API
 If a dashboard endpoint is implemented:
 
 GET /api/dashboard/
@@ -823,7 +825,7 @@ Example response:
         "active": 7
     }
 }
-
+---------------------------------------------------------------------
 This information can be displayed on the frontend dashboard.
 
 54. API Summary
